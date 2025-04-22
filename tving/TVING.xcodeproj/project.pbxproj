@@ -11,26 +11,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B0849BCE2DB56F3D00CBAAF1 /* tving.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tving.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0849BCE2DB56F3D00CBAAF1 /* TVING.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVING.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		B0849BE02DB56F3F00CBAAF1 /* Exceptions for "tving" folder in "tving" target */ = {
+		B0849BE02DB56F3F00CBAAF1 /* Exceptions for "TVING" folder in "TVING" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = B0849BCD2DB56F3D00CBAAF1 /* tving */;
+			target = B0849BCD2DB56F3D00CBAAF1 /* TVING */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		B0849BD02DB56F3D00CBAAF1 /* tving */ = {
+		B0849BD02DB56F3D00CBAAF1 /* TVING */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				B0849BE02DB56F3F00CBAAF1 /* Exceptions for "tving" folder in "tving" target */,
+				B0849BE02DB56F3F00CBAAF1 /* Exceptions for "TVING" folder in "TVING" target */,
 			);
-			path = tving;
+			path = TVING;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -50,7 +50,7 @@
 		B0849BC52DB56F3D00CBAAF1 = {
 			isa = PBXGroup;
 			children = (
-				B0849BD02DB56F3D00CBAAF1 /* tving */,
+				B0849BD02DB56F3D00CBAAF1 /* TVING */,
 				B0849BCF2DB56F3D00CBAAF1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,7 +58,7 @@
 		B0849BCF2DB56F3D00CBAAF1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B0849BCE2DB56F3D00CBAAF1 /* tving.app */,
+				B0849BCE2DB56F3D00CBAAF1 /* TVING.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,9 +66,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B0849BCD2DB56F3D00CBAAF1 /* tving */ = {
+		B0849BCD2DB56F3D00CBAAF1 /* TVING */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0849BE12DB56F3F00CBAAF1 /* Build configuration list for PBXNativeTarget "tving" */;
+			buildConfigurationList = B0849BE12DB56F3F00CBAAF1 /* Build configuration list for PBXNativeTarget "TVING" */;
 			buildPhases = (
 				B0849BCA2DB56F3D00CBAAF1 /* Sources */,
 				B0849BCB2DB56F3D00CBAAF1 /* Frameworks */,
@@ -79,14 +79,14 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				B0849BD02DB56F3D00CBAAF1 /* tving */,
+				B0849BD02DB56F3D00CBAAF1 /* TVING */,
 			);
-			name = tving;
+			name = TVING;
 			packageProductDependencies = (
 				B0849C092DB6B19700CBAAF1 /* SnapKit */,
 			);
 			productName = tving;
-			productReference = B0849BCE2DB56F3D00CBAAF1 /* tving.app */;
+			productReference = B0849BCE2DB56F3D00CBAAF1 /* TVING.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +104,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B0849BC92DB56F3D00CBAAF1 /* Build configuration list for PBXProject "tving" */;
+			buildConfigurationList = B0849BC92DB56F3D00CBAAF1 /* Build configuration list for PBXProject "TVING" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -121,7 +121,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B0849BCD2DB56F3D00CBAAF1 /* tving */,
+				B0849BCD2DB56F3D00CBAAF1 /* TVING */,
 			);
 		};
 /* End PBXProject section */
@@ -321,7 +321,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B0849BC92DB56F3D00CBAAF1 /* Build configuration list for PBXProject "tving" */ = {
+		B0849BC92DB56F3D00CBAAF1 /* Build configuration list for PBXProject "TVING" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0849BE42DB56F3F00CBAAF1 /* Debug */,
@@ -330,7 +330,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0849BE12DB56F3F00CBAAF1 /* Build configuration list for PBXNativeTarget "tving" */ = {
+		B0849BE12DB56F3F00CBAAF1 /* Build configuration list for PBXNativeTarget "TVING" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0849BE22DB56F3F00CBAAF1 /* Debug */,
