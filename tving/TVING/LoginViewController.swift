@@ -10,15 +10,22 @@ import SnapKit
 
 class LoginViewController: UIViewController {
     
+    
     let titleLabel = UILabel()
+    
     let idTextField = UITextField()
     let pwTextField = UITextField()
+    
     let loginButton = UIButton()
+    
     let findIdButton = UIButton()
     let findPwButton = UIButton()
     let divider = UIView()
+    let findInfoStackView = UIStackView()
+    
     let accountLabel = UILabel()
     let setNameButton = UIButton()
+    let makeNicknameStackView = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,61 +36,69 @@ class LoginViewController: UIViewController {
     }
     
     func setLayout() {
-        [titleLabel, idTextField, pwTextField, loginButton, findIdButton, divider, findPwButton, accountLabel, setNameButton].forEach{
-            self.view.addSubview($0)
-        }
         
-        titleLabel.snp.makeConstraints {
+        view
+            .addSubviews(
+                titleLabel,
+                idTextField,
+                pwTextField,
+                loginButton,
+                findInfoStackView,
+                makeNicknameStackView
+            )
+        
+        findInfoStackView
+            .addArrangedSubviews(
+                findIdButton,
+                divider,
+                findPwButton
+            )
+        
+        makeNicknameStackView
+            .addArrangedSubviews(
+                accountLabel,
+                setNameButton
+            )
+        
+        titleLabel.snp.makeConstraints{
             $0.top.equalTo(view.safeAreaLayoutGuide).inset(90)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(110)
         }
         
         idTextField.snp.makeConstraints {
-            $0.top.equalTo(self.titleLabel.snp.bottom).offset(31)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(31)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
-            $0.bottom.equalTo(self.titleLabel.snp.bottom).offset(83)
+            $0.height.equalTo(52)
+
         }
         pwTextField.snp.makeConstraints {
-            $0.top.equalTo(self.idTextField.snp.bottom).offset(7)
+            $0.top.equalTo(idTextField.snp.bottom).offset(7)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
-            $0.bottom.equalTo(self.idTextField.snp.bottom).offset(59)
-            $0.width.equalTo(1)
-            $0.height.equalTo(12)
+            $0.height.equalTo(52)
         }
         
         loginButton.snp.makeConstraints {
-            $0.top.equalTo(self.pwTextField.snp.bottom).offset(21)
+            $0.top.equalTo(pwTextField.snp.bottom).offset(21)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
-            $0.bottom.equalTo(self.pwTextField.snp.bottom).offset(73)
+            $0.height.equalTo(52)
         }
         
-        findIdButton.snp.makeConstraints{
-            $0.top.equalTo(self.loginButton.snp.bottom).offset(31)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).inset(85)
+        findInfoStackView.snp.makeConstraints{
+            $0.top.equalTo(loginButton.snp.bottom).offset(31)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(85)
+            $0.height.equalTo(22)
         }
-        
+    
         divider.snp.makeConstraints{
-            $0.top.equalTo(self.loginButton.snp.bottom).offset(36)
-            $0.leading.equalTo(self.findIdButton.snp.trailing).offset(35)
             $0.width.equalTo(2)
             $0.height.equalTo(12)
         }
         
-        findPwButton.snp.makeConstraints{
-            $0.top.equalTo(self.loginButton.snp.bottom).offset(31)
-            $0.leading.equalTo(self.divider.snp.trailing).offset(35)
+        makeNicknameStackView.snp.makeConstraints {
+            $0.top.equalTo(findInfoStackView.snp.bottom).offset(28)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(58)
+            $0.height.equalTo(22)
         }
-        
-        accountLabel.snp.makeConstraints{
-            $0.top.equalTo(self.findIdButton.snp.bottom).offset(28)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(51)
-        }
-        
-        setNameButton.snp.makeConstraints{
-            $0.top.equalTo(self.findPwButton.snp.bottom).offset(23)
-            $0.leading.equalTo(self.accountLabel.snp.trailing).offset(33)
-        }
-        
         
         titleLabel.text = "TVING ID 로그인"
         titleLabel.textAlignment = .center
@@ -119,14 +134,16 @@ class LoginViewController: UIViewController {
         findIdButton.setTitle("아이디 찾기", for: .normal)
         findIdButton.setTitleColor(.gray2, for: .normal)
         findIdButton.titleLabel?.font = .systemFont(ofSize: 14)
-        findIdButton.backgroundColor = .black
         
         divider.backgroundColor = .gray4
         
         findPwButton.setTitle("비밀번호 찾기", for: .normal)
         findPwButton.setTitleColor(.gray2, for: .normal)
         findPwButton.titleLabel?.font = .systemFont(ofSize: 14)
-        findPwButton.backgroundColor = .black
+
+        findInfoStackView.alignment = .center
+        findInfoStackView.axis = .horizontal
+        findInfoStackView.distribution = .equalSpacing
         
         accountLabel.text = "아직 계정이 없으신가요?"
         accountLabel.textColor = .gray3
@@ -136,6 +153,10 @@ class LoginViewController: UIViewController {
         setNameButton.setTitleColor(.gray2, for: .normal)
         setNameButton.titleLabel?.font = .systemFont(ofSize: 14)
         setNameButton.setUnderline()
+        
+        makeNicknameStackView.alignment = .center
+        makeNicknameStackView.axis = .horizontal
+        makeNicknameStackView.distribution = .equalSpacing
     }
 }
 
