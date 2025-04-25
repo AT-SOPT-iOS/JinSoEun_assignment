@@ -55,6 +55,7 @@ class LoginViewController: UIViewController {
         idTextField.font = .pretendardRegular(size: 15)
         idTextField.setPlaceholder(color: .gray2)
         idTextField.textColor = .gray2
+        idTextField.autocapitalizationType = .none
         
         idClearButton.setImage(.clearButton, for: .normal)
         idClearButton.isHidden = true
