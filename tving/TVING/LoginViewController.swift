@@ -121,7 +121,7 @@ class LoginViewController: UIViewController {
         }
         
         loginButton.snp.makeConstraints {
-            $0.top.equalTo(passwordTextField.snp.bottom).offset(21)
+            $0.top.equalTo(passwordFieldStackView.snp.bottom).offset(21)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
             $0.height.equalTo(52)
         }
