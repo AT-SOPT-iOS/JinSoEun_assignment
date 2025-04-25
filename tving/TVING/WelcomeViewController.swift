@@ -17,9 +17,6 @@ class WelcomeViewController: UIViewController {
     let welcomeLabel = UILabel()
     let mainButton = UIButton()
     
-    private func bindEmail() {
-        self.welcomeLabel.text = "\(email!)님\n반가워요!"
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +27,9 @@ class WelcomeViewController: UIViewController {
         bindEmail()
     }
     
-    
+    func bindEmail() {
+        self.welcomeLabel.text = "\(email!)님\n반가워요!"
+    }
     
     func setUI() {
         view.backgroundColor = .black
@@ -49,13 +48,14 @@ class WelcomeViewController: UIViewController {
         mainButton.layer.cornerRadius = 3
     }
     
+    
     func setHierarchy() {
         view.addSubviews(welcomeImage, welcomeLabel, mainButton)
     }
     
     func setConstraints() {
         welcomeImage.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(58)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
         }
         
@@ -63,7 +63,7 @@ class WelcomeViewController: UIViewController {
             $0.top.equalTo(welcomeImage.snp.bottom).offset(67)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
         }
-
+        
         mainButton.snp.makeConstraints {
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(66)
@@ -71,6 +71,10 @@ class WelcomeViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.hidesBackButton = true
+    }
 }
 
 #Preview {
