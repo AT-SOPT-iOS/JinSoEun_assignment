@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+
 class WelcomeViewController: UIViewController {
     
     var email: String?
@@ -24,7 +25,7 @@ class WelcomeViewController: UIViewController {
     }
     
     private func bindEmail() {
-        self.welcomeLabel.text = "님\n반가워요!"
+        self.welcomeLabel.text = "\(email!)님\n반가워요!"
     }
     
     func setLayout() {

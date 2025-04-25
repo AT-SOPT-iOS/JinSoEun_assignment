@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
     let passwordFieldStackView = UIStackView()
     let passwordTextField = UITextField()
     let passwordClearButton = UIButton()
-    let passwordHideButton = UIButton()
+    let passwordHideToggle = UIButton()
     
     let loginButton = UIButton()
     
@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
             .addArrangedSubviews(
                 passwordTextField,
                 passwordClearButton,
-                passwordHideButton
+                passwordHideToggle
             )
         
         findInfoStackView
@@ -112,10 +112,10 @@ class LoginViewController: UIViewController {
         
         passwordClearButton.snp.makeConstraints{
             $0.height.width.equalTo(20)
-            $0.trailing.equalTo(passwordHideButton.snp.leading).offset(-14)
+            $0.trailing.equalTo(passwordHideToggle.snp.leading).offset(-14)
         }
         
-        passwordHideButton.snp.makeConstraints{
+        passwordHideToggle.snp.makeConstraints{
             $0.trailing.equalToSuperview().inset(20)
             $0.height.width.equalTo(20)
         }
@@ -184,9 +184,9 @@ class LoginViewController: UIViewController {
         passwordClearButton.isHidden = true
         passwordClearButton.addTarget(self, action: #selector(clearTextField), for: .touchUpInside)
         
-        passwordHideButton.setImage(.hideButton, for: .normal)
-        passwordHideButton.isHidden = true
-        passwordHideButton.addTarget(self, action: #selector(passwordHideButtonDidTapped), for: .touchUpInside)
+        passwordHideToggle.setImage(.hideButton, for: .normal)
+        passwordHideToggle.isHidden = true
+        passwordHideToggle.addTarget(self, action: #selector(passwordHideButtonDidTapped), for: .touchUpInside)
         
         passwordFieldStackView.alignment = .center
         passwordFieldStackView.axis = .horizontal
@@ -202,6 +202,7 @@ class LoginViewController: UIViewController {
         loginButton.layer.borderWidth = 1
         loginButton.titleLabel?.font = .systemFont(ofSize: 14)
         loginButton.layer.cornerRadius = 3
+        loginButton.addTarget(self, action: #selector(loginButtonDidTapped), for: .touchUpInside)
         
         findIdButton.setTitle("아이디 찾기", for: .normal)
         findIdButton.setTitleColor(.gray2, for: .normal)
@@ -233,7 +234,6 @@ class LoginViewController: UIViewController {
     
     
     
-    
     @objc private func clearTextField(_ sender: UIButton) {
         
         if sender == idClearButton {
@@ -243,7 +243,7 @@ class LoginViewController: UIViewController {
         } else if sender == passwordClearButton {
             passwordTextField.text = ""
             passwordClearButton.isHidden = true
-            passwordHideButton.isHidden = true
+            passwordHideToggle.isHidden = true
             activeLoginButton()
         }
     }
@@ -258,19 +258,19 @@ class LoginViewController: UIViewController {
             passwordClearButton.isHidden = sender.text?.isEmpty ?? true
             passwordFieldStackView.layer.borderColor = UIColor.gray2.cgColor
             passwordFieldStackView.layer.borderWidth = 1
-            passwordHideButton.isHidden = sender.text?.isEmpty ?? true
+            passwordHideToggle.isHidden = sender.text?.isEmpty ?? true
         }
     }
     
     @objc private func textFieldDidChange(_ sender:UITextField) {
         if sender == idTextField {
             idClearButton.isHidden = sender.text?.isEmpty ?? true
-            activeLoginButton()
+            
         } else if sender == passwordTextField {
             passwordClearButton.isHidden = sender.text?.isEmpty ?? true
-            passwordHideButton.isHidden = sender.text?.isEmpty ?? true
-            activeLoginButton()
+            passwordHideToggle.isHidden = sender.text?.isEmpty ?? true
         }
+        activeLoginButton()
     }
     
     @objc private func textFieldDidEndEditing(_ sender: UITextField) {
@@ -280,7 +280,7 @@ class LoginViewController: UIViewController {
         } else if sender == passwordTextField {
             passwordFieldStackView.layer.borderWidth = 0
             passwordClearButton.isHidden = true
-            passwordHideButton.isHidden = sender.text?.isEmpty ?? true
+            passwordHideToggle.isHidden = sender.text?.isEmpty ?? true
         }
     }
     
@@ -293,16 +293,28 @@ class LoginViewController: UIViewController {
         
     }
     
-    @objc private func activeLoginButton(){
+    private func activeLoginButton(){
         if idTextField.text?.isEmpty ?? true  || passwordTextField.text?.isEmpty ?? true {
             loginButton.setTitleColor(.gray2, for: .normal)
             loginButton.backgroundColor = .black
             loginButton.layer.borderWidth = 1
+            loginButton.isEnabled = false
         } else {
             loginButton.setTitleColor(.white, for: .normal)
             loginButton.backgroundColor = .tvingRed
             loginButton.layer.borderWidth = 0
+            loginButton.isEnabled = true
         }
+    }
+    private func pushToWelcomeVC() {
+        let welcomeViewController = WelcomeViewController()
+        
+        welcomeViewController.email = idTextField.text
+        self.navigationController?.pushViewController(welcomeViewController, animated: true)
+    }
+    
+    @objc private func loginButtonDidTapped() {
+        pushToWelcomeVC()
     }
 }
 
