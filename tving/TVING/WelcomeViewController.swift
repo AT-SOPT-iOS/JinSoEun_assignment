@@ -53,12 +53,12 @@ class WelcomeViewController: UIViewController {
         
         welcomeLabel.textColor = .white
         welcomeLabel.textAlignment = .center
-        welcomeLabel.font = .systemFont(ofSize: 23)
+        welcomeLabel.font = .pretendardBold(size: 23)
         welcomeLabel.numberOfLines = 2
         
         mainButton.setTitle("메인으로", for: .normal)
         mainButton.setTitleColor(.white, for: .normal)
-        mainButton.titleLabel?.font = .systemFont(ofSize: 14)
+        mainButton.titleLabel?.font = .pretendardRegular(size: 14)
         mainButton.backgroundColor = .tvingRed
         mainButton.layer.cornerRadius = 3
     }

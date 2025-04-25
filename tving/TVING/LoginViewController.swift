@@ -147,10 +147,11 @@ class LoginViewController: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.textColor = .gray1
         titleLabel.backgroundColor = .black
-        titleLabel.font = .systemFont(ofSize: 23)
+        titleLabel.font = .pretendardRegular(size: 23)
+        
         
         idTextField.placeholder = "아이디"
-        idTextField.font = .systemFont(ofSize: 15)
+        idTextField.font = .pretendardRegular(size: 15)
         idTextField.setPlaceholder(color: .gray2)
         idTextField.textColor = .gray2
         
@@ -170,7 +171,7 @@ class LoginViewController: UIViewController {
         idFieldStackView.isLayoutMarginsRelativeArrangement = true
         
         passwordTextField.placeholder = "비밀번호"
-        passwordTextField.font = .systemFont(ofSize: 15)
+        passwordTextField.font = .pretendardRegular(size: 15)
         passwordTextField.setPlaceholder(color: .gray2)
         passwordTextField.textColor = .gray2
         passwordTextField.backgroundColor = .gray4
@@ -200,19 +201,19 @@ class LoginViewController: UIViewController {
         loginButton.backgroundColor = .black
         loginButton.layer.borderColor = UIColor.gray4.cgColor
         loginButton.layer.borderWidth = 1
-        loginButton.titleLabel?.font = .systemFont(ofSize: 14)
+        loginButton.titleLabel?.font = .pretendardRegular(size: 14)
         loginButton.layer.cornerRadius = 3
         loginButton.addTarget(self, action: #selector(loginButtonDidTapped), for: .touchUpInside)
         
         findIdButton.setTitle("아이디 찾기", for: .normal)
         findIdButton.setTitleColor(.gray2, for: .normal)
-        findIdButton.titleLabel?.font = .systemFont(ofSize: 14)
+        findIdButton.titleLabel?.font = .pretendardRegular(size: 14)
         
         divider.backgroundColor = .gray4
         
         findPwButton.setTitle("비밀번호 찾기", for: .normal)
         findPwButton.setTitleColor(.gray2, for: .normal)
-        findPwButton.titleLabel?.font = .systemFont(ofSize: 14)
+        findPwButton.titleLabel?.font = .pretendardRegular(size: 14)
         
         findInfoStackView.alignment = .center
         findInfoStackView.axis = .horizontal
@@ -220,11 +221,11 @@ class LoginViewController: UIViewController {
         
         accountLabel.text = "아직 계정이 없으신가요?"
         accountLabel.textColor = .gray3
-        accountLabel.font = .systemFont(ofSize: 14)
+        accountLabel.font = .pretendardLight(size: 14)
         
         setNameButton.setTitle("닉네임 만들러가기", for: .normal)
         setNameButton.setTitleColor(.gray2, for: .normal)
-        setNameButton.titleLabel?.font = .systemFont(ofSize: 14)
+        setNameButton.titleLabel?.font = .pretendardLight(size: 14)
         setNameButton.setUnderline()
         
         makeNicknameStackView.alignment = .center
