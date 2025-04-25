@@ -13,7 +13,6 @@ class LoginViewController: UIViewController {
     
     let titleLabel = UILabel()
     
-    
     let idFieldStackView = UIStackView()
     let idTextField = UITextField()
     let idClearButton = UIButton()
@@ -37,13 +36,100 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .black
-        
-        setLayout()
+        setUI()
+        setHierarchy()
+        setConstraints()
+        setActions()
     }
     
-    func setLayout() {
+    func setUI() {
+        self.view.backgroundColor = .black
         
+        titleLabel.text = "TVING ID 로그인"
+        titleLabel.textColor = .gray1
+        titleLabel.backgroundColor = .black
+        titleLabel.font = .pretendardRegular(size: 23)
+        
+        
+        idTextField.placeholder = "아이디"
+        idTextField.font = .pretendardRegular(size: 15)
+        idTextField.setPlaceholder(color: .gray2)
+        idTextField.textColor = .gray2
+        
+        idClearButton.setImage(.clearButton, for: .normal)
+        idClearButton.isHidden = true
+        idFieldStackView.isLayoutMarginsRelativeArrangement = true
+        
+        idClearButton.setImage(.clearButton, for: .normal)
+        idClearButton.isHidden = true
+        
+        idFieldStackView.alignment = .center
+        idFieldStackView.axis = .horizontal
+        idFieldStackView.distribution = .fill
+        idFieldStackView.backgroundColor = .gray4
+        idFieldStackView.layer.cornerRadius = 3
+        
+        
+        passwordTextField.placeholder = "비밀번호"
+        passwordTextField.font = .pretendardRegular(size: 15)
+        passwordTextField.setPlaceholder(color: .gray2)
+        passwordTextField.textColor = .gray2
+        passwordTextField.backgroundColor = .gray4
+        passwordTextField.isSecureTextEntry = true
+        
+        passwordClearButton.setImage(.clearButton, for: .normal)
+        passwordClearButton.isHidden = true
+        
+        passwordHideToggle.setImage(.hideButton, for: .normal)
+        passwordHideToggle.isHidden = true
+        
+        passwordFieldStackView.alignment = .center
+        passwordFieldStackView.axis = .horizontal
+        passwordFieldStackView.distribution = .fill
+        passwordFieldStackView.backgroundColor = .gray4
+        passwordFieldStackView.isLayoutMarginsRelativeArrangement = true
+        passwordFieldStackView.layer.cornerRadius = 3
+        
+        
+        loginButton.setTitle("로그인하기", for: .normal)
+        loginButton.setTitleColor(.gray2, for: .normal)
+        loginButton.backgroundColor = .black
+        loginButton.layer.borderColor = UIColor.gray4.cgColor
+        loginButton.layer.borderWidth = 1
+        loginButton.titleLabel?.font = .pretendardRegular(size: 14)
+        loginButton.layer.cornerRadius = 3
+        
+        
+        findIdButton.setTitle("아이디 찾기", for: .normal)
+        findIdButton.setTitleColor(.gray2, for: .normal)
+        findIdButton.titleLabel?.font = .pretendardRegular(size: 14)
+        
+        divider.backgroundColor = .gray4
+        
+        findPwButton.setTitle("비밀번호 찾기", for: .normal)
+        findPwButton.setTitleColor(.gray2, for: .normal)
+        findPwButton.titleLabel?.font = .pretendardRegular(size: 14)
+        
+        findInfoStackView.alignment = .center
+        findInfoStackView.axis = .horizontal
+        findInfoStackView.distribution = .equalSpacing
+        
+        
+        accountLabel.text = "아직 계정이 없으신가요?"
+        accountLabel.textColor = .gray3
+        accountLabel.font = .pretendardLight(size: 14)
+        
+        setNameButton.setTitle("닉네임 만들러가기", for: .normal)
+        setNameButton.setTitleColor(.gray2, for: .normal)
+        setNameButton.titleLabel?.font = .pretendardLight(size: 14)
+        setNameButton.setUnderline()
+        
+        makeNicknameStackView.alignment = .center
+        makeNicknameStackView.axis = .horizontal
+        makeNicknameStackView.distribution = .equalSpacing
+    }
+    
+    func setHierarchy() {
         view
             .addSubviews(
                 titleLabel,
@@ -79,7 +165,10 @@ class LoginViewController: UIViewController {
                 accountLabel,
                 setNameButton
             )
-        
+    }
+    
+    func setConstraints() {
+
         titleLabel.snp.makeConstraints{
             $0.top.equalTo(view.safeAreaLayoutGuide).inset(90)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(110)
@@ -142,97 +231,28 @@ class LoginViewController: UIViewController {
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(58)
             $0.height.equalTo(22)
         }
-        
-        titleLabel.text = "TVING ID 로그인"
-        titleLabel.textAlignment = .center
-        titleLabel.textColor = .gray1
-        titleLabel.backgroundColor = .black
-        titleLabel.font = .pretendardRegular(size: 23)
-        
-        
-        idTextField.placeholder = "아이디"
-        idTextField.font = .pretendardRegular(size: 15)
-        idTextField.setPlaceholder(color: .gray2)
-        idTextField.textColor = .gray2
-        
+    }
+    
+    
+    func setActions() {
         idTextField.addTarget(self, action: #selector(textFieldDidBeginEditing), for: .editingDidBegin)
         idTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         idTextField.addTarget(self, action: #selector(textFieldDidEndEditing), for: .editingDidEnd)
         
-        idClearButton.setImage(.clearButton, for: .normal)
         idClearButton.addTarget(self, action: #selector(clearTextField), for: .touchUpInside)
-        idClearButton.isHidden = true
-        
-        idFieldStackView.alignment = .center
-        idFieldStackView.axis = .horizontal
-        idFieldStackView.distribution = .fill
-        idFieldStackView.backgroundColor = .gray4
-        idFieldStackView.layer.cornerRadius = 3
-        idFieldStackView.isLayoutMarginsRelativeArrangement = true
-        
-        passwordTextField.placeholder = "비밀번호"
-        passwordTextField.font = .pretendardRegular(size: 15)
-        passwordTextField.setPlaceholder(color: .gray2)
-        passwordTextField.textColor = .gray2
-        passwordTextField.backgroundColor = .gray4
-        passwordTextField.isSecureTextEntry = true
+  
         
         passwordTextField.addTarget(self, action: #selector(textFieldDidBeginEditing), for: .editingDidBegin)
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldDidEndEditing), for: .editingDidEnd)
-        
-        passwordClearButton.setImage(.clearButton, for: .normal)
-        passwordClearButton.isHidden = true
+
         passwordClearButton.addTarget(self, action: #selector(clearTextField), for: .touchUpInside)
         
-        passwordHideToggle.setImage(.hideButton, for: .normal)
-        passwordHideToggle.isHidden = true
         passwordHideToggle.addTarget(self, action: #selector(passwordHideButtonDidTapped), for: .touchUpInside)
         
-        passwordFieldStackView.alignment = .center
-        passwordFieldStackView.axis = .horizontal
-        passwordFieldStackView.distribution = .fill
-        passwordFieldStackView.backgroundColor = .gray4
-        passwordFieldStackView.isLayoutMarginsRelativeArrangement = true
-        passwordFieldStackView.layer.cornerRadius = 3
         
-        loginButton.setTitle("로그인하기", for: .normal)
-        loginButton.setTitleColor(.gray2, for: .normal)
-        loginButton.backgroundColor = .black
-        loginButton.layer.borderColor = UIColor.gray4.cgColor
-        loginButton.layer.borderWidth = 1
-        loginButton.titleLabel?.font = .pretendardRegular(size: 14)
-        loginButton.layer.cornerRadius = 3
         loginButton.addTarget(self, action: #selector(loginButtonDidTapped), for: .touchUpInside)
-        
-        findIdButton.setTitle("아이디 찾기", for: .normal)
-        findIdButton.setTitleColor(.gray2, for: .normal)
-        findIdButton.titleLabel?.font = .pretendardRegular(size: 14)
-        
-        divider.backgroundColor = .gray4
-        
-        findPwButton.setTitle("비밀번호 찾기", for: .normal)
-        findPwButton.setTitleColor(.gray2, for: .normal)
-        findPwButton.titleLabel?.font = .pretendardRegular(size: 14)
-        
-        findInfoStackView.alignment = .center
-        findInfoStackView.axis = .horizontal
-        findInfoStackView.distribution = .equalSpacing
-        
-        accountLabel.text = "아직 계정이 없으신가요?"
-        accountLabel.textColor = .gray3
-        accountLabel.font = .pretendardLight(size: 14)
-        
-        setNameButton.setTitle("닉네임 만들러가기", for: .normal)
-        setNameButton.setTitleColor(.gray2, for: .normal)
-        setNameButton.titleLabel?.font = .pretendardLight(size: 14)
-        setNameButton.setUnderline()
-        
-        makeNicknameStackView.alignment = .center
-        makeNicknameStackView.axis = .horizontal
-        makeNicknameStackView.distribution = .equalSpacing
     }
-    
     
     
     @objc private func clearTextField(_ sender: UIButton) {
