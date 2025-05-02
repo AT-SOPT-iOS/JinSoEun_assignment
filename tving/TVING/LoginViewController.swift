@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
     
     func setUI() {
         self.view.backgroundColor = .black
-        
+         
         titleLabel.text = "TVING ID 로그인"
         titleLabel.textColor = .gray1
         titleLabel.backgroundColor = .black

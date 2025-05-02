@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B02F8AB72DBCA55000C90147 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = B02F8AB62DBCA55000C90147 /* Then */; };
 		B0849C0A2DB6B19700CBAAF1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B0849C092DB6B19700CBAAF1 /* SnapKit */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		B03A8EAD2DC4B88800E49FBC /* Home */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Home;
+			sourceTree = "<group>";
+		};
 		B0849BD02DB56F3D00CBAAF1 /* TVING */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -41,6 +47,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0849C0A2DB6B19700CBAAF1 /* SnapKit in Frameworks */,
+				B02F8AB72DBCA55000C90147 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +59,7 @@
 			children = (
 				B0849BD02DB56F3D00CBAAF1 /* TVING */,
 				B0849BCF2DB56F3D00CBAAF1 /* Products */,
+				B03A8EAD2DC4B88800E49FBC /* Home */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,11 +87,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				B03A8EAD2DC4B88800E49FBC /* Home */,
 				B0849BD02DB56F3D00CBAAF1 /* TVING */,
 			);
 			name = TVING;
 			packageProductDependencies = (
 				B0849C092DB6B19700CBAAF1 /* SnapKit */,
+				B02F8AB62DBCA55000C90147 /* Then */,
 			);
 			productName = tving;
 			productReference = B0849BCE2DB56F3D00CBAAF1 /* TVING.app */;
@@ -115,6 +125,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				B0849C082DB6B19700CBAAF1 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				B02F8AB52DBCA55000C90147 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B0849BCF2DB56F3D00CBAAF1 /* Products */;
@@ -342,6 +353,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B02F8AB52DBCA55000C90147 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		B0849C082DB6B19700CBAAF1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -353,6 +372,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B02F8AB62DBCA55000C90147 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B02F8AB52DBCA55000C90147 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
 		B0849C092DB6B19700CBAAF1 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B0849C082DB6B19700CBAAF1 /* XCRemoteSwiftPackageReference "SnapKit" */;
