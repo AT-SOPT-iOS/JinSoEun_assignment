@@ -23,6 +23,14 @@ class TodayTvingCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    private let expandLabel: UILabel = {
+        let label = UILabel()
+        label.text = "더보기"
+        label.font = .pretendardRegular(size: 12)
+        label.textColor = .gray2
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setLayout()
@@ -65,8 +73,4 @@ extension TodayTvingCollectionViewCell {
         rankingLabel.text = itemData.ranking
         poster.image = itemData.thumbnail
     }
-}
-
-#Preview {
-    TodayTvingCollectionView()
 }

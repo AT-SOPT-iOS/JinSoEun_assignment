@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Then
 
 final class TodayTvingCollectionView : UIViewController {
     
@@ -31,6 +32,15 @@ final class TodayTvingCollectionView : UIViewController {
         register()
     }
     
+//    private let label = UILabel()
+//    
+//    private func setUI() {
+//        numberLabel.do{
+//            $0.label
+//        }
+//    }
+    
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "오늘의 티빙 TOP 20"
@@ -39,8 +49,16 @@ final class TodayTvingCollectionView : UIViewController {
         return label
     }()
     
+    private let expandLabel: UILabel = {
+        let label = UILabel()
+        label.text = "더보기"
+        label.font = .pretendardRegular(size: 12)
+        label.textColor = .gray2
+        return label
+    }()
+    
     private func setLayout() {
-        self.view.addSubviews(collectionView, titleLabel)
+        self.view.addSubviews(collectionView, titleLabel,expandLabel)
         self.view.backgroundColor = .black
         collectionView.backgroundColor = .black
         
@@ -52,6 +70,11 @@ final class TodayTvingCollectionView : UIViewController {
             $0.top.equalTo(titleLabel.snp.bottom).offset(9)
             $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
             $0.height.equalTo(200)
+        }
+        expandLabel.snp.makeConstraints{
+            $0.top.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.width.equalTo(44)
+            $0.height.equalTo(20)
         }
     }
     
