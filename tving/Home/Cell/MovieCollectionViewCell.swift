@@ -1,27 +1,20 @@
 //
-//  ChatCollectionViewCell.swift
+//  MovieCollectionViewCell.swift
 //  TVING
 //
 //  Created by 쏘 on 5/2/25.
 //
 
+
 import UIKit
 import SnapKit
 
-class TodayTvingCollectionViewCell: UICollectionViewCell {
-    static let identifier = "TodayTvingCollectionViewCell"
+class MovieCollectionViewCell: UICollectionViewCell {
+    static let identifier = "MovieCollectionViewCell"
     
-
     
     private let poster = UIImageView()
     
-    private let rankingLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.textAlignment = .center
-        label.font = .pretendardExtraBold(size: 50)
-        return label
-    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,17 +29,11 @@ class TodayTvingCollectionViewCell: UICollectionViewCell {
     
     private func setLayout() {
         backgroundColor = .black
-        [rankingLabel, poster].forEach {
-            contentView.addSubview($0)
-        }
+        contentView.addSubview(poster)
         
-        rankingLabel.snp.makeConstraints{
-            $0.leading.equalToSuperview().inset(12)
-            $0.bottom.equalToSuperview()
-        }
         poster.snp.makeConstraints{
             $0.top.equalToSuperview()
-            $0.leading.equalTo(rankingLabel.snp.trailing).offset(8)
+            $0.leading.equalToSuperview()
             $0.bottom.equalToSuperview()
             $0.width.equalTo(130)
         }
@@ -60,13 +47,10 @@ class TodayTvingCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension TodayTvingCollectionViewCell {
+extension MovieCollectionViewCell {
     func dataBind(_ itemData: TodayTvingModel) {
-        rankingLabel.text = itemData.ranking
-        poster.image = itemData.thumbnail
-    }
-}
 
-#Preview {
-    TodayTvingCollectionView()
+        poster.image = itemData.thumbnail
+
+    }
 }

@@ -11,6 +11,7 @@ import SnapKit
 final class HomeViewController : UIViewController {
     
     private let todayTvingVC = TodayTvingCollectionView()
+    private let movieVC = MovieCollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,16 +25,29 @@ final class HomeViewController : UIViewController {
     }
     
     private func setLayout() {
+        self.view.backgroundColor = .black
+        
         addChild(todayTvingVC)
-        view.addSubview(todayTvingVC.view)
+        addChild(movieVC)
+        view.addSubviews(todayTvingVC.view, movieVC.view)
         
         todayTvingVC.view.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(240) // 필요에 따라 조절
+            $0.leading.equalToSuperview().inset(12)
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(240)
         }
         
+        movieVC.view.snp.makeConstraints {
+            $0.top.equalTo(todayTvingVC.view.snp.bottom).offset(28)
+            $0.leading.equalToSuperview().inset(12)
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(240)
+        }
+        
+        
         todayTvingVC.didMove(toParent: self)
+        movieVC.didMove(toParent: self)
     }
 }
 

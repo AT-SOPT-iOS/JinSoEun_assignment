@@ -1,16 +1,18 @@
 //
-//  TodayTvingCollectionView.swift
+//  MovieCollectionView.swift
 //  TVING
 //
 //  Created by 쏘 on 5/2/25.
 //
 
+
+
 import UIKit
 import SnapKit
 
-final class TodayTvingCollectionView : UIViewController {
+final class MovieCollectionView : UIViewController {
     
-    final let interItemSpacing: CGFloat = 12
+    final let interItemSpacing: CGFloat = 8
     final let cellHeight: CGFloat = 146
     
     private var itemData = TodayTvingModel.dummy()
@@ -33,7 +35,7 @@ final class TodayTvingCollectionView : UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "오늘의 티빙 TOP 20"
+        label.text = "실시간 인기 영화"
         label.font = .pretendardBold(size: 20)
         label.textColor = .white
         return label
@@ -56,7 +58,7 @@ final class TodayTvingCollectionView : UIViewController {
     }
     
     private func register() {
-        collectionView.register(TodayTvingCollectionViewCell.self, forCellWithReuseIdentifier: TodayTvingCollectionViewCell.identifier)
+        collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
     }
     
     private func setDelegate() {
@@ -65,7 +67,7 @@ final class TodayTvingCollectionView : UIViewController {
     }
 }
 
-extension TodayTvingCollectionView: UICollectionViewDelegateFlowLayout {
+extension MovieCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 178, height: 178)
     }
@@ -75,13 +77,13 @@ extension TodayTvingCollectionView: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension TodayTvingCollectionView : UICollectionViewDataSource {
+extension MovieCollectionView : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayTvingCollectionViewCell.identifier, for: indexPath) as? TodayTvingCollectionViewCell else { return TodayTvingCollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.identifier, for: indexPath) as? MovieCollectionViewCell else { return MovieCollectionViewCell() }
         cell.dataBind(itemData[indexPath.item])
         return cell
     }
@@ -91,5 +93,5 @@ extension TodayTvingCollectionView : UICollectionViewDataSource {
 
 
 #Preview {
-    TodayTvingCollectionView()
+    MovieCollectionView()
 }
