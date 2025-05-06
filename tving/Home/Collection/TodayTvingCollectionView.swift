@@ -49,16 +49,8 @@ final class TodayTvingCollectionView : UIViewController {
         return label
     }()
     
-    private let expandLabel: UILabel = {
-        let label = UILabel()
-        label.text = "더보기"
-        label.font = .pretendardRegular(size: 12)
-        label.textColor = .gray2
-        return label
-    }()
-    
     private func setLayout() {
-        self.view.addSubviews(collectionView, titleLabel,expandLabel)
+        self.view.addSubviews(collectionView, titleLabel)
         self.view.backgroundColor = .black
         collectionView.backgroundColor = .black
         
@@ -70,11 +62,6 @@ final class TodayTvingCollectionView : UIViewController {
             $0.top.equalTo(titleLabel.snp.bottom).offset(9)
             $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
             $0.height.equalTo(200)
-        }
-        expandLabel.snp.makeConstraints{
-            $0.top.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            $0.width.equalTo(44)
-            $0.height.equalTo(20)
         }
     }
     
