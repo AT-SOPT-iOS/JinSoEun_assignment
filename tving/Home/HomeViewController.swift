@@ -17,6 +17,7 @@ final class HomeViewController : UIViewController {
     private let liveVC = LiveCollectionView()
     private let baseballVC = BaseballCollectionView()
     private let channelVC = ChannelCollectionView()
+    private let gahyunPickVC = GahyunPickCollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ final class HomeViewController : UIViewController {
         
         self.view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addArrangedSubviews(todayTvingVC.view, liveVC.view, movieVC.view, baseballVC.view, channelVC.view)
+        contentView.addArrangedSubviews(todayTvingVC.view, liveVC.view, movieVC.view, baseballVC.view, channelVC.view, gahyunPickVC.view)
         
         scrollView.snp.makeConstraints{
             $0.edges.equalToSuperview()
@@ -47,7 +48,7 @@ final class HomeViewController : UIViewController {
         }
         
         todayTvingVC.view.snp.makeConstraints{
-            $0.height.equalTo(280)
+            $0.height.equalTo(240)
             $0.leading.equalToSuperview().inset(12)
         }
         
@@ -68,6 +69,11 @@ final class HomeViewController : UIViewController {
         
         channelVC.view.snp.makeConstraints {
             $0.height.equalTo(45)
+            $0.leading.equalToSuperview().inset(15)
+        }
+        
+        gahyunPickVC.view.snp.makeConstraints {
+            $0.height.equalTo(130)
             $0.leading.equalToSuperview().inset(15)
         }
     }
