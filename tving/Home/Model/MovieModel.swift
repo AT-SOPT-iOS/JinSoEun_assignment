@@ -14,8 +14,8 @@ struct MovieModel {
 extension MovieModel {
     static func dummy() -> [MovieModel] {
         return [
+            MovieModel(thumbnail: .poster10),
             MovieModel(thumbnail: .poster1),
-            MovieModel(thumbnail: .poster2),
             MovieModel(thumbnail: .poster3),
             MovieModel(thumbnail: .poster4),
             MovieModel(thumbnail: .poster5),

@@ -35,7 +35,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
             $0.bottom.equalToSuperview()
-            $0.width.equalTo(130)
+            $0.width.equalTo(98)
         }
     }
     

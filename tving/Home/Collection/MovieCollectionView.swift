@@ -13,6 +13,7 @@ import SnapKit
 final class MovieCollectionView : UIViewController {
     
     final let interItemSpacing: CGFloat = 8
+    final let cellWidth: CGFloat = 98
     final let cellHeight: CGFloat = 146
     
     private var itemData = MovieModel.dummy()
@@ -41,8 +42,16 @@ final class MovieCollectionView : UIViewController {
         return label
     }()
     
+    private let expandLabel: UILabel = {
+        let label = UILabel()
+        label.text = "더보기"
+        label.font = .pretendardRegular(size: 12)
+        label.textColor = .gray2
+        return label
+    }()
+    
     private func setLayout() {
-        self.view.addSubviews(collectionView, titleLabel)
+        self.view.addSubviews(collectionView, titleLabel, expandLabel)
         self.view.backgroundColor = .black
         collectionView.backgroundColor = .black
         
@@ -53,7 +62,12 @@ final class MovieCollectionView : UIViewController {
         collectionView.snp.makeConstraints{
             $0.top.equalTo(titleLabel.snp.bottom).offset(9)
             $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            $0.height.equalTo(200)
+            $0.height.equalTo(146)
+        }
+        expandLabel.snp.makeConstraints{
+            $0.top.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.width.equalTo(44)
+            $0.height.equalTo(20)
         }
     }
     
@@ -69,10 +83,10 @@ final class MovieCollectionView : UIViewController {
 
 extension MovieCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 178, height: 178)
+        return CGSize(width: cellWidth, height: cellHeight)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return interItemSpacing
     }
 }
