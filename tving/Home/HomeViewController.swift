@@ -16,6 +16,7 @@ final class HomeViewController : UIViewController {
     private let movieVC = MovieCollectionView()
     private let liveVC = LiveCollectionView()
     private let baseballVC = BaseballCollectionView()
+    private let channelVC = ChannelCollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,19 +28,17 @@ final class HomeViewController : UIViewController {
         self.view.backgroundColor = .black
     }
 
-    
     private func setLayout() {
 
         contentView.axis = .vertical
-        contentView.spacing = 60
+        contentView.spacing = 28
         
         self.view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addArrangedSubviews(todayTvingVC.view, liveVC.view, movieVC.view, baseballVC.view)
+        contentView.addArrangedSubviews(todayTvingVC.view, liveVC.view, movieVC.view, baseballVC.view, channelVC.view)
         
         scrollView.snp.makeConstraints{
             $0.edges.equalToSuperview()
-            
         }
         
         contentView.snp.makeConstraints{
@@ -48,7 +47,12 @@ final class HomeViewController : UIViewController {
         }
         
         todayTvingVC.view.snp.makeConstraints{
-            $0.height.equalTo(270)
+            $0.height.equalTo(280)
+            $0.leading.equalToSuperview().inset(12)
+        }
+        
+        liveVC.view.snp.makeConstraints{
+            $0.height.equalTo(180)
             $0.leading.equalToSuperview().inset(12)
         }
         
@@ -57,14 +61,14 @@ final class HomeViewController : UIViewController {
             $0.leading.equalToSuperview().inset(12)
         }
         
-        liveVC.view.snp.makeConstraints{
-            $0.height.equalTo(160)
-            $0.leading.equalToSuperview().inset(12)
+        baseballVC.view.snp.makeConstraints{
+            $0.height.equalTo(50)
+            $0.leading.equalToSuperview()
         }
         
-        baseballVC.view.snp.makeConstraints{
-            $0.height.equalTo(80)
-            $0.leading.equalToSuperview()
+        channelVC.view.snp.makeConstraints {
+            $0.height.equalTo(45)
+            $0.leading.equalToSuperview().inset(15)
         }
     }
 }
