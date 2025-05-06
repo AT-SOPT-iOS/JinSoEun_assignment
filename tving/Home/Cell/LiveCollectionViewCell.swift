@@ -40,13 +40,13 @@ class LiveCollectionViewCell : UICollectionViewCell {
             $0.leading.equalToSuperview().inset(6)
             $0.top.equalTo(thumbnail.snp.bottom).offset(10)
             $0.height.equalTo(30)
-            $0.width.equalTo(16)
+            $0.width.equalTo(12)
         }
         
         title.snp.makeConstraints{
-            $0.leading.equalTo(ranking.snp.trailing).offset(10)
+            $0.leading.equalTo(ranking.snp.trailing).offset(7)
             $0.trailing.equalTo(thumbnail.snp.trailing)
-            $0.top.equalTo(thumbnail.snp.bottom).offset(10)
+            $0.top.equalTo(thumbnail.snp.bottom).offset(13)
             $0.height.equalTo(16)
         }
         

@@ -8,12 +8,11 @@
 import UIKit
 import SnapKit
 
-
-
 final class LiveCollectionView : UIViewController {
     
     final let interItemSpacing: CGFloat = 7
-    final let cellHeight: CGFloat = 150
+    final let cellWidth: CGFloat = 160
+    final let cellHeight: CGFloat = 180
     
     private var itemData = LiveModel.dummy()
     
@@ -70,7 +69,6 @@ final class LiveCollectionView : UIViewController {
         }
     }
     
-    
     private func register() {
         collectionView.register(LiveCollectionViewCell.self, forCellWithReuseIdentifier: LiveCollectionViewCell.identifier)
     }
@@ -83,12 +81,13 @@ final class LiveCollectionView : UIViewController {
 
 extension LiveCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 178, height: 178)
+        return CGSize(width: cellWidth, height: cellHeight)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return interItemSpacing
     }
+
 }
 
 extension LiveCollectionView : UICollectionViewDataSource {
