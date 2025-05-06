@@ -15,7 +15,7 @@ final class MovieCollectionView : UIViewController {
     final let interItemSpacing: CGFloat = 8
     final let cellHeight: CGFloat = 146
     
-    private var itemData = TodayTvingModel.dummy()
+    private var itemData = MovieModel.dummy()
     
     private let collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()

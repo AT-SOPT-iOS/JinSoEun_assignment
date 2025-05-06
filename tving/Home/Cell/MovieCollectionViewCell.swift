@@ -48,9 +48,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
 }
 
 extension MovieCollectionViewCell {
-    func dataBind(_ itemData: TodayTvingModel) {
-
+    func dataBind(_ itemData: MovieModel) {
         poster.image = itemData.thumbnail
-
     }
 }
