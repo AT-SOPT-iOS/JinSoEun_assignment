@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 final class HomeViewController : UIViewController {
+    private let scrollView = UIScrollView()
+    private let contentView = UIStackView()
     
     private let todayTvingVC = TodayTvingCollectionView()
     private let movieVC = MovieCollectionView()
@@ -17,41 +19,48 @@ final class HomeViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationItem.hidesBackButton = true
+        setUI()
     }
     
-    private func setLayout() {
+    private func setUI() {
         self.view.backgroundColor = .black
+    }
+
+    
+    private func setLayout() {
+
+        contentView.axis = .vertical
+        contentView.spacing = 60
         
-        addChild(todayTvingVC)
-        addChild(movieVC)
-        addChild(liveVC)
-        view.addSubviews(todayTvingVC.view, movieVC.view, liveVC.view)
+        self.view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addArrangedSubviews(todayTvingVC.view, liveVC.view, movieVC.view)
         
-        todayTvingVC.view.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.leading.equalToSuperview().inset(12)
-            $0.trailing.equalToSuperview()
-            $0.height.equalTo(240)
+        scrollView.snp.makeConstraints{
+            $0.edges.equalToSuperview()
         }
         
-        movieVC.view.snp.makeConstraints {
-            $0.top.equalTo(liveVC.view.snp.bottom).offset(28)
-            $0.leading.equalToSuperview().inset(12)
-            $0.trailing.equalToSuperview()
-            $0.height.equalTo(240)
+        contentView.snp.makeConstraints{
+            $0.edges.equalToSuperview()
+            $0.width.equalToSuperview()
+        }
+        
+        todayTvingVC.view.snp.makeConstraints{
+            $0.height.equalTo(270)
+        }
+        
+        movieVC.view.snp.makeConstraints{
+            $0.height.equalTo(200)
         }
         
         liveVC.view.snp.makeConstraints{
-            $0.top.equalTo(todayTvingVC.view.snp.bottom).offset(28)
-            $0.leading.equalToSuperview().inset(12)
-            $0.trailing.equalToSuperview()
-            $0.height.equalTo(200)
+            $0.height.equalTo(160)
         }
+//        [todayTvingVC.view, movieVC.view, liveVC.view].forEach {
+//            $0.snp.makeConstraints {
+//                $0.height.equalTo(250)
+//            }
+//        }
         
         
     }
