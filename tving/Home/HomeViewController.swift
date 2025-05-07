@@ -13,6 +13,7 @@ final class HomeViewController : UIViewController {
     private let contentView = UIStackView()
     
     private let header = HeaderView()
+    private let mainPoster = MainPosterCollectionView()
     private let todayTvingVC = TodayTvingCollectionView()
     private let movieVC = MovieCollectionView()
     private let liveVC = LiveCollectionView()
@@ -38,7 +39,7 @@ final class HomeViewController : UIViewController {
         
         self.view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addArrangedSubviews(header, todayTvingVC.view, liveVC.view, movieVC.view, baseballVC.view, channelVC.view, gahyunPickVC.view, footer)
+        contentView.addArrangedSubviews(header, mainPoster.view, todayTvingVC.view, liveVC.view, movieVC.view, baseballVC.view, channelVC.view, gahyunPickVC.view, footer)
         
         scrollView.snp.makeConstraints{
             $0.edges.equalToSuperview()
@@ -53,6 +54,11 @@ final class HomeViewController : UIViewController {
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview().inset(11)
             $0.height.equalTo(100)
+        }
+        
+        mainPoster.view.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(400)
         }
         
         todayTvingVC.view.snp.makeConstraints{
