@@ -12,12 +12,14 @@ final class HomeViewController : UIViewController {
     private let scrollView = UIScrollView()
     private let contentView = UIStackView()
     
+    private let header = HeaderView()
     private let todayTvingVC = TodayTvingCollectionView()
     private let movieVC = MovieCollectionView()
     private let liveVC = LiveCollectionView()
     private let baseballVC = BaseballCollectionView()
     private let channelVC = ChannelCollectionView()
     private let gahyunPickVC = GahyunPickCollectionView()
+    private let footer = FooterView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,7 @@ final class HomeViewController : UIViewController {
         
         self.view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addArrangedSubviews(todayTvingVC.view, liveVC.view, movieVC.view, baseballVC.view, channelVC.view, gahyunPickVC.view)
+        contentView.addArrangedSubviews(header, todayTvingVC.view, liveVC.view, movieVC.view, baseballVC.view, channelVC.view, gahyunPickVC.view, footer)
         
         scrollView.snp.makeConstraints{
             $0.edges.equalToSuperview()
@@ -45,6 +47,12 @@ final class HomeViewController : UIViewController {
         contentView.snp.makeConstraints{
             $0.edges.equalToSuperview()
             $0.width.equalToSuperview()
+        }
+        
+        header.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(11)
+            $0.height.equalTo(78)
         }
         
         todayTvingVC.view.snp.makeConstraints{
@@ -75,6 +83,11 @@ final class HomeViewController : UIViewController {
         gahyunPickVC.view.snp.makeConstraints {
             $0.height.equalTo(130)
             $0.leading.equalToSuperview().inset(15)
+        }
+        
+        footer.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(14)
+            $0.height.equalTo(95)
         }
     }
 }
