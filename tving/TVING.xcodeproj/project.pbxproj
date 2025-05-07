@@ -26,11 +26,6 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		B03A8EAD2DC4B88800E49FBC /* Home */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Home;
-			sourceTree = "<group>";
-		};
 		B0849BD02DB56F3D00CBAAF1 /* TVING */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -59,7 +54,6 @@
 			children = (
 				B0849BD02DB56F3D00CBAAF1 /* TVING */,
 				B0849BCF2DB56F3D00CBAAF1 /* Products */,
-				B03A8EAD2DC4B88800E49FBC /* Home */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,7 +81,6 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				B03A8EAD2DC4B88800E49FBC /* Home */,
 				B0849BD02DB56F3D00CBAAF1 /* TVING */,
 			);
 			name = TVING;

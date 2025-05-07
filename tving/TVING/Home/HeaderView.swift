@@ -108,7 +108,7 @@ final class HeaderView: UIView {
         
         tabMenuStackView.snp.makeConstraints {
             $0.top.equalTo(topStackView.snp.bottom)
-            $0.leading.trailing.equalTo(self.safeAreaLayoutGuide)
+            $0.leading.trailing.equalTo(self.safeAreaLayoutGuide).inset(20)
         }
         
         searchButton.snp.makeConstraints {
