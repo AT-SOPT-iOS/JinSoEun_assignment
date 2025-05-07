@@ -52,12 +52,13 @@ final class HomeViewController : UIViewController {
         header.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview().inset(11)
-            $0.height.equalTo(78)
+            $0.height.equalTo(100)
         }
         
         todayTvingVC.view.snp.makeConstraints{
             $0.height.equalTo(240)
             $0.leading.equalToSuperview().inset(12)
+//            $0.top.equalTo(header.snp.bottom).offset(20)
         }
         
         liveVC.view.snp.makeConstraints{
@@ -95,6 +96,3 @@ final class HomeViewController : UIViewController {
 #Preview {
     HomeViewController()
 }
-
-
-
