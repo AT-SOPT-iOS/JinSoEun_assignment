@@ -37,12 +37,13 @@ final class HomeViewController : UIViewController {
         contentView.axis = .vertical
         contentView.spacing = 28
         
-        self.view.addSubview(scrollView)
+        self.view.addSubviews(scrollView, header)
         scrollView.addSubview(contentView)
-        contentView.addArrangedSubviews(header, mainPoster.view, todayTvingVC.view, liveVC.view, movieVC.view, baseballVC.view, channelVC.view, gahyunPickVC.view, footer)
+        contentView.addArrangedSubviews(mainPoster.view, todayTvingVC.view, liveVC.view, movieVC.view, baseballVC.view, channelVC.view, gahyunPickVC.view, footer)
         
         scrollView.snp.makeConstraints{
-            $0.edges.equalToSuperview()
+            $0.top.equalTo(header.snp.bottom).offset(25)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
         
         contentView.snp.makeConstraints{
@@ -51,6 +52,7 @@ final class HomeViewController : UIViewController {
         }
         
         header.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview().inset(11)
             $0.height.equalTo(100)
