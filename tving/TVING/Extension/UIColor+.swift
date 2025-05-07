@@ -22,4 +22,7 @@ extension UIColor {
     static let tvingRed = UIColor(red: 255/255, green: 20/255, blue: 60/255, alpha: 1)
     
     static let baseGray = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 1)
+    
+    static let footerGray = UIColor(red: 140/255, green: 140/255, blue: 140/255, alpha: 1)
+    
 }
