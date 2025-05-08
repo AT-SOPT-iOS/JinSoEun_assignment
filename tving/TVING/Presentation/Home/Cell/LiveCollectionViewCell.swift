@@ -98,5 +98,5 @@ extension LiveCollectionViewCell {
 
 
 #Preview {
-    LiveCollectionView()
+    LiveViewController()
 }

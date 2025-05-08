@@ -13,13 +13,13 @@ final class HomeViewController : UIViewController {
     private let contentView = UIStackView()
     
     private let header = HeaderView()
-    private let mainPoster = MainPosterCollectionView()
-    private let todayTvingVC = TodayTvingCollectionView()
-    private let movieVC = MovieCollectionView()
-    private let liveVC = LiveCollectionView()
-    private let baseballVC = BaseballCollectionView()
-    private let channelVC = ChannelCollectionView()
-    private let gahyunPickVC = GahyunPickCollectionView()
+    private let mainPoster = MainPosterViewController()
+    private let todayTvingVC = TodayTvingViewController()
+    private let movieVC = MovieViewController()
+    private let liveVC = LiveViewController()
+    private let baseballVC = BaseballViewController()
+    private let channelVC = ChannelViewController()
+    private let gahyunPickVC = GahyunPickViewController()
     private let footer = FooterView()
     
     override func viewDidLoad() {

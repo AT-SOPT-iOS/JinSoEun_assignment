@@ -19,7 +19,7 @@
 		B0849BE02DB56F3F00CBAAF1 /* Exceptions for "TVING" folder in "TVING" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Resources/Info.plist,
 			);
 			target = B0849BCD2DB56F3D00CBAAF1 /* TVING */;
 		};

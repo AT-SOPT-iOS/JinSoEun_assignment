@@ -56,5 +56,5 @@ extension BaseballCollectionViewCell {
 }
 
 #Preview {
-    BaseballCollectionView()
+    BaseballViewController()
 }

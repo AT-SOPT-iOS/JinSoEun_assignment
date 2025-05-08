@@ -56,5 +56,5 @@ extension ChannelCollectionViewCell {
 }
 
 #Preview {
-    ChannelCollectionView()
+    ChannelViewController()
 }

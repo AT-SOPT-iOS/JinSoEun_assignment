@@ -1,5 +1,5 @@
 //
-//  TodayTvingCollectionView.swift
+//  LiveCollecitonView.swift
 //  TVING
 //
 //  Created by 쏘 on 5/2/25.
@@ -7,14 +7,14 @@
 
 import UIKit
 import SnapKit
-import Then
 
-final class TodayTvingCollectionView : UIViewController {
+final class LiveViewController : UIViewController {
     
-    final let interItemSpacing: CGFloat = 12
-    final let cellHeight: CGFloat = 146
+    final let interItemSpacing: CGFloat = 7
+    final let cellWidth: CGFloat = 160
+    final let cellHeight: CGFloat = 180
     
-    private var itemData = TodayTvingModel.dummy()
+    private var itemData = LiveModel.dummy()
     
     private let collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -32,30 +32,29 @@ final class TodayTvingCollectionView : UIViewController {
         register()
     }
     
-//    private let label = UILabel()
-//    
-//    private func setUI() {
-//        numberLabel.do{
-//            $0.label
-//        }
-//    }
-    
-    
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "오늘의 티빙 TOP 20"
+        label.text = "실시간 인기 LIVE"
         label.font = .pretendardBold(size: 20)
         label.textColor = .white
         return label
     }()
     
+    private let expandLabel: UILabel = {
+        let label = UILabel()
+        label.text = "더보기"
+        label.font = .pretendardRegular(size: 12)
+        label.textColor = .gray2
+        return label
+    }()
+    
     private func setLayout() {
-        self.view.addSubviews(collectionView, titleLabel)
+        self.view.addSubviews(collectionView, titleLabel, expandLabel)
         self.view.backgroundColor = .black
         collectionView.backgroundColor = .black
         
         titleLabel.snp.makeConstraints{
-            $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.leading.equalTo(self.view.safeAreaLayoutGuide)
             $0.top.equalTo(self.view.safeAreaLayoutGuide)
         }
         collectionView.snp.makeConstraints{
@@ -63,10 +62,15 @@ final class TodayTvingCollectionView : UIViewController {
             $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
             $0.height.equalTo(200)
         }
+        expandLabel.snp.makeConstraints{
+            $0.top.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.width.equalTo(44)
+            $0.height.equalTo(20)
+        }
     }
     
     private func register() {
-        collectionView.register(TodayTvingCollectionViewCell.self, forCellWithReuseIdentifier: TodayTvingCollectionViewCell.identifier)
+        collectionView.register(LiveCollectionViewCell.self, forCellWithReuseIdentifier: LiveCollectionViewCell.identifier)
     }
     
     private func setDelegate() {
@@ -75,31 +79,31 @@ final class TodayTvingCollectionView : UIViewController {
     }
 }
 
-extension TodayTvingCollectionView: UICollectionViewDelegateFlowLayout {
+extension LiveViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 178, height: 178)
+        return CGSize(width: cellWidth, height: cellHeight)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return interItemSpacing
     }
+
 }
 
-extension TodayTvingCollectionView : UICollectionViewDataSource {
+extension LiveViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayTvingCollectionViewCell.identifier, for: indexPath) as? TodayTvingCollectionViewCell else { return TodayTvingCollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LiveCollectionViewCell.identifier, for: indexPath) as? LiveCollectionViewCell else { return LiveCollectionViewCell() }
         cell.dataBind(itemData[indexPath.item])
         return cell
     }
 }
 
-
-
-
 #Preview {
-    TodayTvingCollectionView()
+    LiveViewController()
 }
+
+

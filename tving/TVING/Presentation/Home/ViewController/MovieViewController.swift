@@ -1,20 +1,22 @@
 //
-//  GahyunPickCollectionView.swift
+//  MovieCollectionView.swift
 //  TVING
 //
-//  Created by 쏘 on 5/7/25.
+//  Created by 쏘 on 5/2/25.
 //
+
+
 
 import UIKit
 import SnapKit
 
-final class GahyunPickCollectionView : UIViewController {
+final class MovieViewController : UIViewController {
     
     final let interItemSpacing: CGFloat = 8
-    final let cellWidth: CGFloat = 160
-    final let cellHeight: CGFloat = 90
+    final let cellWidth: CGFloat = 98
+    final let cellHeight: CGFloat = 146
     
-    private var itemData = GahyunPickModel.dummy()
+    private var itemData = MovieModel.dummy()
     
     private let collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -34,14 +36,22 @@ final class GahyunPickCollectionView : UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "김가현PD의 인생작 TOP 5"
+        label.text = "실시간 인기 영화"
         label.font = .pretendardBold(size: 20)
         label.textColor = .white
         return label
     }()
     
+    private let expandLabel: UILabel = {
+        let label = UILabel()
+        label.text = "더보기"
+        label.font = .pretendardRegular(size: 12)
+        label.textColor = .gray2
+        return label
+    }()
+    
     private func setLayout() {
-        self.view.addSubviews(collectionView, titleLabel)
+        self.view.addSubviews(collectionView, titleLabel, expandLabel)
         self.view.backgroundColor = .black
         collectionView.backgroundColor = .black
         
@@ -50,14 +60,19 @@ final class GahyunPickCollectionView : UIViewController {
             $0.top.equalTo(self.view.safeAreaLayoutGuide)
         }
         collectionView.snp.makeConstraints{
-            $0.top.equalTo(titleLabel.snp.bottom).offset(12)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(9)
             $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            $0.height.equalTo(90)
+            $0.height.equalTo(146)
+        }
+        expandLabel.snp.makeConstraints{
+            $0.top.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.width.equalTo(44)
+            $0.height.equalTo(20)
         }
     }
     
     private func register() {
-        collectionView.register(GahyunPickCollectionViewCell.self, forCellWithReuseIdentifier: GahyunPickCollectionViewCell.identifier)
+        collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
     }
     
     private func setDelegate() {
@@ -66,7 +81,7 @@ final class GahyunPickCollectionView : UIViewController {
     }
 }
 
-extension GahyunPickCollectionView: UICollectionViewDelegateFlowLayout {
+extension MovieViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: cellWidth, height: cellHeight)
     }
@@ -76,13 +91,13 @@ extension GahyunPickCollectionView: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension GahyunPickCollectionView : UICollectionViewDataSource {
+extension MovieViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GahyunPickCollectionViewCell.identifier, for: indexPath) as? GahyunPickCollectionViewCell else { return GahyunPickCollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.identifier, for: indexPath) as? MovieCollectionViewCell else { return MovieCollectionViewCell() }
         cell.dataBind(itemData[indexPath.item])
         return cell
     }
@@ -92,5 +107,5 @@ extension GahyunPickCollectionView : UICollectionViewDataSource {
 
 
 #Preview {
-    GahyunPickCollectionView()
+    MovieViewController()
 }

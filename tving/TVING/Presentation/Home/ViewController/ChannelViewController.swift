@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class ChannelCollectionView: UIViewController {
+final class ChannelViewController: UIViewController {
     
     final let interItemSpacing: CGFloat = 7
     final let cellWidth: CGFloat = 90
@@ -54,7 +54,7 @@ final class ChannelCollectionView: UIViewController {
 }
 
 
-extension ChannelCollectionView: UICollectionViewDelegateFlowLayout {
+extension ChannelViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: cellWidth, height: cellHeight)
     }
@@ -64,7 +64,7 @@ extension ChannelCollectionView: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension ChannelCollectionView : UICollectionViewDataSource {
+extension ChannelViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemData.count
     }
@@ -79,5 +79,5 @@ extension ChannelCollectionView : UICollectionViewDataSource {
 
 
 #Preview {
-    ChannelCollectionView()
+    ChannelViewController()
 }
