@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		B02F8AB72DBCA55000C90147 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = B02F8AB62DBCA55000C90147 /* Then */; };
+		B07C33EE2DCDDDF000183CA0 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = B07C33ED2DCDDDE600183CA0 /* .swiftformat */; };
 		B0849C0A2DB6B19700CBAAF1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B0849C092DB6B19700CBAAF1 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B07C33ED2DCDDDE600183CA0 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		B0849BCE2DB56F3D00CBAAF1 /* TVING.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVING.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -52,6 +54,7 @@
 		B0849BC52DB56F3D00CBAAF1 = {
 			isa = PBXGroup;
 			children = (
+				B07C33ED2DCDDDE600183CA0 /* .swiftformat */,
 				B0849BD02DB56F3D00CBAAF1 /* TVING */,
 				B0849BCF2DB56F3D00CBAAF1 /* Products */,
 			);
@@ -135,6 +138,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B07C33EE2DCDDDF000183CA0 /* .swiftformat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,7 +163,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = tving/Info.plist;
+				INFOPLIST_FILE = tving/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -185,7 +189,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = tving/Info.plist;
+				INFOPLIST_FILE = tving/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
