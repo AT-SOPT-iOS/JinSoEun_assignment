@@ -1,0 +1,47 @@
+# 들여쓰기
+--indent 2                        # 들여쓰기 너비 설정 (공백 2칸)
+--tabwidth 2                     # 탭으로 작성된 코드도 공백 2칸으로 계산
+--allman false                   # 중괄호 { 를 같은 줄에 유지 (Allman 스타일 비활성화)
+--xcodeindentation enabled       # Xcode 스타일의 들여쓰기 사용
+--indentcase true                # switch-case 블록도 들여쓰기 적용
+--indentstrings true             # 문자열 내 줄바꿈도 들여쓰기 적용
+
+# 줄바꿈 및 공백
+--linebreaks lf                  # 줄바꿈 방식: LF (Unix 스타일)
+--trimwhitespace always          # 줄 끝 공백 제거
+--wraparguments preserve         # 함수 인자 줄바꿈 유지
+--wrapcollections preserve       # 배열, 딕셔너리 줄바꿈 유지
+--wrapparameters preserve        # 함수 매개변수 줄바꿈 유지
+--wrapconditions preserve        # 조건문 줄바꿈 유지
+--wrapreturntype preserve        # 반환 타입 줄바꿈 유지
+--wrapternary default            # 삼항 연산자 줄바꿈 기본값 사용
+--ranges spaced                  # 범위 연산자 사이에 공백 유지 (예: `1 ..< 10`)
+--commas always                  # 쉼표 뒤 공백 항상 유지
+--emptybraces no-space           # 빈 중괄호 사이에 공백 없이 `{}` 처리
+
+# 클로저 관련
+--closurevoid remove             # `-> Void`는 제거
+--trailingclosures               # 마지막 클로저는 괄호 밖으로 빼기
+--stripunusedargs always         # 사용하지 않는 클로저 인자 제거
+
+# 타입/속성 관련
+--inferredtypes exclude-cond-exprs   # 조건식 제외한 나머지는 타입 추론 허용
+--propertytypes infer-locals-only    # 지역 변수는 타입 추론, 나머지는 명시
+--voidtype void                      # `Void` 대신 `void` 사용
+--typedelimiter space-after          # 타입 선언 시 콜론 뒤에만 공백 삽입 (`name: Int`)
+
+# 주석 및 마크 처리
+--categorymark MARK: %c             # 마크 주석 포맷
+--marktypes always                  # 타입 정의에 항상 MARK 추가
+--markextensions always             # extension에 항상 MARK 추가
+--markcategories true               # MARK 주석에 카테고리 포함 (예: `// MARK: - View 설정`)
+--lineaftermarks true               # MARK 뒤에 한 줄 공백 추가
+
+# 기타
+--operatorfunc spaced               # 연산자 함수 선언 시 공백 추가 (예: `func +(a, b)`)
+--shortoptionals except-properties  # 옵셔널을 축약형(?)으로 표현하되, 속성에서는 제외
+--semicolons never                  # 세미콜론 제거
+--patternlet hoist                  # 조건문 패턴 바인딩을 위로 끌어올림
+--organizationmode visibility       # 접근 제어자 기준으로 코드 정렬 (public → internal → private)
+--groupblanklines true              # 관련 코드 블록 사이에 빈 줄 추가
+--importgrouping alphabetical       # import 구문 알파벳 순으로 정렬
