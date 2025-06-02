@@ -13,6 +13,7 @@ struct HomeView: View {
             ScrollView {
                 VStack() {
                     Top20SectionView()
+                    LiveView()
                 }
             }
         }
@@ -23,4 +24,3 @@ struct HomeView: View {
 #Preview {
     HomeView()
 }
-
