@@ -11,11 +11,18 @@ struct Top20SectionView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("오늘의 티빙 TOP 20")
-                .font(.title3)
-                .bold()
-                .foregroundColor(.white)
-                .padding(.horizontal)
+            HStack {
+                Text("오늘의 티빙 TOP 20")
+                    .font(.title3)
+                    .bold()
+                    .foregroundColor(.white)
+                    .padding(.horizontal)
+                Spacer()
+                Text("더보기")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+            }
+            .padding(.horizontal, 10)
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {

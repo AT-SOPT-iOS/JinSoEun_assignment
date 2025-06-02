@@ -23,7 +23,7 @@ struct LiveView: View {
                     .font(.caption)
                     .foregroundColor(.gray)
             }
-            .padding(.trailing, 10)
+            .padding(.horizontal, 10)
             
             
             ScrollView(.horizontal, showsIndicators: false) {
