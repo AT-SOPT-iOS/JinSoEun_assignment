@@ -15,7 +15,7 @@ class WelcomeViewController: UIViewController {
     
     let welcomeImage = UIImageView()
     let welcomeLabel = UILabel()
-    let mainButton = UIButton()
+    let homeButton = UIButton()
     
     
     override func viewDidLoad() {
@@ -24,6 +24,7 @@ class WelcomeViewController: UIViewController {
         setUI()
         setHierarchy()
         setConstraints()
+        setActions()
         bindEmail()
     }
     
@@ -41,16 +42,16 @@ class WelcomeViewController: UIViewController {
         welcomeLabel.font = .pretendardBold(size: 23)
         welcomeLabel.numberOfLines = 2
         
-        mainButton.setTitle("메인으로", for: .normal)
-        mainButton.setTitleColor(.white, for: .normal)
-        mainButton.titleLabel?.font = .pretendardRegular(size: 14)
-        mainButton.backgroundColor = .tvingRed
-        mainButton.layer.cornerRadius = 3
+        homeButton.setTitle("메인으로", for: .normal)
+        homeButton.setTitleColor(.white, for: .normal)
+        homeButton.titleLabel?.font = .pretendardRegular(size: 14)
+        homeButton.backgroundColor = .tvingRed
+        homeButton.layer.cornerRadius = 3
     }
     
     
     func setHierarchy() {
-        view.addSubviews(welcomeImage, welcomeLabel, mainButton)
+        view.addSubviews(welcomeImage, welcomeLabel, homeButton)
     }
     
     func setConstraints() {
@@ -64,17 +65,31 @@ class WelcomeViewController: UIViewController {
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
         }
         
-        mainButton.snp.makeConstraints {
+        homeButton.snp.makeConstraints {
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(66)
             $0.height.equalTo(66)
         }
     }
     
+    private func setActions() {
+        homeButton.addTarget(self, action: #selector(homeButtonDidTapped), for: .touchUpInside)
+    }
+    private func pushToHomeVC() {
+        let homeViewController = HomeViewController()
+        
+        self.navigationController?.pushViewController(homeViewController, animated: true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.hidesBackButton = true
     }
+    
+    @objc private func homeButtonDidTapped() {
+        pushToHomeVC()
+    }
+    
 }
 
 #Preview {
