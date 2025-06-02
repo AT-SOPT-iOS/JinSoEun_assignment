@@ -11,10 +11,11 @@ struct HomeView: View {
     var body: some View {
         VStack(spacing: 0) {
             ScrollView {
-                VStack() {
+                VStack(spacing: 10) {
                     Top20SectionView()
                     LiveView()
                     MovieView()
+                    BaseballView()
                 }
             }
         }
