@@ -7,18 +7,18 @@
 
 import UIKit
 
-struct PdPick {
+struct PdPickModel {
   let thumbnail: UIImage
 }
 
-extension PdPick {
-  static func dummy() -> [PdPick] {
+extension PdPickModel {
+  static func dummy() -> [PdPickModel] {
     return [
-      PdPick(thumbnail: .live4),
-      PdPick(thumbnail: .live5),
-      PdPick(thumbnail: .live3),
-      PdPick(thumbnail: .live6),
-      PdPick(thumbnail: .live2),
+      PdPickModel(thumbnail: .live4),
+      PdPickModel(thumbnail: .live5),
+      PdPickModel(thumbnail: .live3),
+      PdPickModel(thumbnail: .live6),
+      PdPickModel(thumbnail: .live2),
     ]
   }
 }
