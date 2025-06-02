@@ -14,6 +14,7 @@ struct HomeView: View {
                 VStack() {
                     Top20SectionView()
                     LiveView()
+                    MovieView()
                 }
             }
         }
