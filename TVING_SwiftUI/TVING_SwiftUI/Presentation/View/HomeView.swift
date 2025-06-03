@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         VStack(spacing: 0) {
+            MainHeaderView()
             ScrollView {
                 VStack(spacing: 28) {
                     MainPosterView()
