@@ -12,6 +12,7 @@ struct HomeView: View {
         VStack(spacing: 0) {
             ScrollView {
                 VStack(spacing: 28) {
+                    MainPosterView()
                     Top20SectionView()
                     LiveView()
                     MovieView()
