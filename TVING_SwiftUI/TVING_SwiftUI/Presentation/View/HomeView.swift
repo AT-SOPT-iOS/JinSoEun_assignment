@@ -11,6 +11,7 @@ struct HomeView: View {
     var body: some View {
         VStack(spacing: 0) {
             MainHeaderView()
+            TabBarView()
             ScrollView {
                 VStack(spacing: 28) {
                     MainPosterView()
@@ -20,6 +21,7 @@ struct HomeView: View {
                     BaseballView()
                     ChannelView()
                     PdPickView()
+                    FooterView()
                 }
             }
         }
